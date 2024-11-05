@@ -20,6 +20,8 @@ target_link_libraries(test_robot
   ${library_name}
 )
 
+find_package(GDAL REQUIRED)
+
 # Test visualizations
 ament_add_gtest(test_viz
   test_viz.cpp
@@ -28,7 +30,7 @@ ament_target_dependencies(test_viz
   ${dependencies}
 )
 target_link_libraries(test_viz
-  ${library_name}
+  ${library_name}  ${GDAL_LIBRARIES}
 )
 
 # Test headland
